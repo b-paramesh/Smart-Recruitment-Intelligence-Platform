@@ -2,13 +2,14 @@
 
 <div align="center">
 
-![Python](https://img.shields.io/badge/Python-3.9%2B-blue?style=flat-square&logo=python)
-![Streamlit](https://img.shields.io/badge/Streamlit-1.x-FF4B4B?style=flat-square&logo=streamlit)
-![PyTorch](https://img.shields.io/badge/PyTorch-2.x-EE4C2C?style=flat-square&logo=pytorch)
-![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
+![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.35.0-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-2.3.0-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-1.4.2-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![spaCy](https://img.shields.io/badge/spaCy-3.7.4-09A3D5?style=for-the-badge&logo=spacy&logoColor=white)
 
 **An enterprise-grade AI recruitment platform powered by NLP and custom PyTorch Transformer models.**  
-Streamlines candidate evaluation, extracts structured resume intelligence, and delivers explainable hiring decisions.
+Automates candidate evaluation, extracts structured resume intelligence, and delivers explainable hiring decisions.
 
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://smart-recruitment-intelligence-platform.streamlit.app)
 
@@ -18,47 +19,105 @@ Streamlines candidate evaluation, extracts structured resume intelligence, and d
 
 ## 📋 Table of Contents
 
-- [Overview](#overview)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
-- [Local Setup](#local-setup)
-- [Streamlit Cloud Deployment](#streamlit-cloud-deployment)
-- [Module Details](#module-details)
+- [Overview](#-overview)
+- [Live Demo](#-live-demo)
+- [Features](#-features)
+- [Deep Learning Architecture](#-deep-learning-architecture)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Local Setup](#-local-setup)
+- [Streamlit Cloud Deployment](#-streamlit-cloud-deployment)
+- [Module Details](#-module-details)
+- [Screenshots](#-screenshots)
+- [Author](#-author)
 
 ---
 
-## Overview
+## 🎯 Overview
 
-The **Smart Recruitment Intelligence Platform (SRIP)** is a full-stack AI application that automates and enhances the recruitment pipeline using:
+The **Smart Recruitment Intelligence Platform (SRIP)** is a full-stack AI application that automates and enhances the recruitment pipeline using a multi-stage intelligence engine:
 
-- **NLP-powered resume parsing** to extract skills, experience, and education
-- **Semantic similarity ranking** to match candidates against job descriptions
-- **Custom PyTorch Transformer** (Self-Attention + Positional Encoding) for deep candidate understanding
-- **Explainability module** with attention heatmaps and hiring reports
+- **NLP-powered resume parsing** — extract skills, experience, and education from raw text using spaCy and regex pipelines
+- **Semantic similarity ranking** — match candidates against job descriptions with TF-IDF and skill-overlap scoring
+- **Custom PyTorch Transformer** — Self-Attention + Positional Encoding for deep candidate-level understanding
+- **Explainability module** — attention heatmaps and structured, human-readable hiring reports
+
+---
+
+## 🌐 Live Demo
+
+> Deploy your own instance using the **[Streamlit Cloud Deployment](#-streamlit-cloud-deployment)** guide below.
+
+```
+https://<your-slug>.streamlit.app
+```
 
 ---
 
 ## ✨ Features
 
-| Module | Description |
-|--------|-------------|
-| 📊 **Dashboard** | High-level KPIs and candidate dataset overview |
-| 📈 **Resume Analytics** | Category/experience distributions, skill word clouds |
-| 🔍 **Information Extraction** | NLP-based parsing of skills, education, experience |
-| 🏆 **Ranking Engine** | TF-IDF + skill-overlap scoring for job-fit ranking |
-| 🧠 **Deep Learning** | Self-Attention & Positional Encoding with benchmarks |
-| 💡 **Explainability** | Attention heatmaps + structured hiring reports |
+| # | Module | Description |
+|---|--------|-------------|
+| 1 | 📊 **Dashboard Overview** | KPI metrics, dataset summary, top candidate records |
+| 2 | 📈 **Resume Analytics** | Category/experience distributions, skill word clouds, length analysis |
+| 3 | 🔍 **Information Extraction** | NLP-based parsing of skills, education, experience years |
+| 4 | 🏆 **Ranking Engine** | Candidate scoring and job-fit ranking via similarity engine |
+| 5 | 🧠 **Deep Learning Module** | Self-Attention, Positional Encoding proof, multi-head benchmark |
+| 6 | 💡 **Explainability Module** | Attention heatmaps per head + structured hiring reports |
+
+---
+
+## 🧠 Deep Learning Architecture
+
+```
+Input Text
+    │
+    ▼
+Tokenisation & Encoding
+    │
+    ▼
+Embedding Layer  (vocab_size × embed_dim)
+    │
+    ▼
+Positional Encoding  (sinusoidal, order-sensitive)
+    │
+    ▼
+Multi-Head Self-Attention  (h = 2, 4, or 8 heads)
+    │
+    ▼
+Layer Normalisation
+    │
+    ▼
+Feed-Forward Layer
+    │
+    ▼
+Linear + Softmax  → Candidate Category Score
+```
+
+### Key Concepts Demonstrated
+
+| Concept | Implementation |
+|---------|---------------|
+| **Self-Attention** | Scaled dot-product attention from scratch in PyTorch |
+| **Positional Encoding** | Sinusoidal PE proving order-sensitivity in embeddings |
+| **Multi-Head Attention** | Benchmarked across 2, 4, 8 heads (100-pass timing) |
+| **ResumeClassifier** | End-to-end Transformer for resume category classification |
+| **Attention Heatmap** | Per-head visualisation of token attention weights |
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** [Streamlit](https://streamlit.io) with custom CSS (Navy/Gold professional theme)
-- **NLP:** scikit-learn, spaCy / regex-based extraction
-- **Deep Learning:** PyTorch (custom MultiHeadAttention, PositionalEncoding, ResumeClassifier)
-- **Data:** pandas, matplotlib, WordCloud
-- **Fonts:** EB Garamond + Inter (Google Fonts)
+| Layer | Technology | Version |
+|-------|-----------|---------|
+| **UI / Frontend** | Streamlit + Custom CSS (Navy/Gold theme) | 1.35.0 |
+| **Deep Learning** | PyTorch (custom Transformer) | 2.3.0 |
+| **NLP** | spaCy (`en_core_web_sm`) | 3.7.4 |
+| **ML Utilities** | scikit-learn | 1.4.2 |
+| **Data** | pandas, NumPy | 2.2.2 / 1.26.4 |
+| **Visualisation** | matplotlib, seaborn, WordCloud | 3.8.4 / 0.13.2 |
+| **PDF Parsing** | PyPDF2 | 3.0.1 |
+| **Typography** | EB Garamond + Inter (Google Fonts) | — |
 
 ---
 
@@ -67,26 +126,26 @@ The **Smart Recruitment Intelligence Platform (SRIP)** is a full-stack AI applic
 ```
 Smart-Recruitment-Intelligence-Platform/
 │
-├── app.py                    # Main Streamlit application
-├── train.py                  # Model training script
-├── generate_data.py          # Synthetic resume data generator
-├── requirements.txt          # Python dependencies
+├── 📄 app.py                      # Main Streamlit application (all pages)
+├── 📄 train.py                    # Model training script (offline)
+├── 📄 generate_data.py            # Synthetic resume data generator
+├── 📄 requirements.txt            # All Python dependencies
 │
-├── .streamlit/
-│   └── config.toml           # Streamlit theme configuration
+├── 📂 .streamlit/
+│   └── config.toml                # Professional Navy/Gold Streamlit theme
 │
-├── src/
-│   ├── analytics.py          # Resume analytics & visualizations
-│   ├── extraction.py         # NLP information extraction engine
-│   ├── matching.py           # Candidate similarity & ranking
-│   ├── explainability.py     # Attention visualization & reports
-│   └── models/
-│       ├── classifier.py     # PyTorch ResumeClassifier (Transformer)
-│       ├── attention.py      # MultiHeadAttention implementation
-│       └── positional.py     # Positional Encoding module
+├── 📂 src/
+│   ├── analytics.py               # Resume analytics & chart generation
+│   ├── extraction.py              # NLP information extraction engine
+│   ├── matching.py                # Candidate similarity & ranking engine
+│   ├── explainability.py          # Attention heatmaps & hiring reports
+│   └── 📂 models/
+│       ├── classifier.py          # PyTorch ResumeClassifier (Transformer)
+│       ├── attention.py           # MultiHeadAttention (from scratch)
+│       └── positional.py         # Positional Encoding + proof demo
 │
-└── data/
-    └── synthetic_resumes.csv # Auto-generated on first run
+└── 📂 data/
+    └── synthetic_resumes.csv      # Auto-generated on first run (500 records)
 ```
 
 ---
@@ -95,8 +154,9 @@ Smart-Recruitment-Intelligence-Platform/
 
 ### Prerequisites
 
-- Python 3.9+
-- pip
+- **Python 3.9+**
+- **pip** (or conda)
+- **Git**
 
 ### Installation
 
@@ -107,79 +167,154 @@ cd Smart-Recruitment-Intelligence-Platform
 
 # 2. Create a virtual environment (recommended)
 python -m venv venv
-venv\Scripts\activate        # Windows
-# source venv/bin/activate   # macOS/Linux
 
-# 3. Install dependencies
+# Activate — Windows
+venv\Scripts\activate
+
+# Activate — macOS / Linux
+# source venv/bin/activate
+
+# 3. Install all dependencies
 pip install -r requirements.txt
 
-# 4. Run the application
+# 4. Run the Streamlit application
 streamlit run app.py
 ```
 
-The app will automatically open at **http://localhost:8501**
+The app opens automatically at **http://localhost:8501**
 
-> **Note:** On first run, `generate_data.py` will auto-generate `data/synthetic_resumes.csv` if it doesn't exist.
+> **💡 Note:** On first run, `generate_data.py` auto-generates `data/synthetic_resumes.csv` (500 synthetic candidates). No manual step needed.
 
 ---
 
 ## 🚀 Streamlit Cloud Deployment
 
-Deploy this app for free in minutes using [Streamlit Community Cloud](https://streamlit.io/cloud).
+Deploy this app for **free** in under 5 minutes using [Streamlit Community Cloud](https://streamlit.io/cloud).
 
-### Step-by-Step Guide
+### Prerequisites
 
-1. **Fork or push this repo to your GitHub account**
+- A **GitHub account** with this repo pushed (already done ✅)
+- A free **Streamlit Community Cloud** account (sign up at [share.streamlit.io](https://share.streamlit.io))
 
-2. **Go to** [share.streamlit.io](https://share.streamlit.io) and sign in with GitHub
+---
 
-3. **Click "New app"** and fill in:
+### Step-by-Step Deployment Guide
 
-   | Field | Value |
-   |-------|-------|
-   | Repository | `BharathReddyRamasani/Smart-Recruitment-Intelligence-Platform` |
-   | Branch | `main` |
-   | Main file path | `app.py` |
-   | App URL | *(choose your custom slug)* |
+#### Step 1 — Sign in to Streamlit Cloud
 
-4. **Click "Deploy!"** — Streamlit Cloud will install `requirements.txt` automatically
+Go to 👉 **[share.streamlit.io](https://share.streamlit.io)**  
+Click **"Sign in with GitHub"** and authorise Streamlit.
 
-5. Your app will be live at:  
-   `https://<your-slug>.streamlit.app`
+---
 
-### Important Notes for Deployment
+#### Step 2 — Create a New App
 
-- ✅ `requirements.txt` includes all dependencies — no extra setup needed
-- ✅ `data/synthetic_resumes.csv` is auto-generated on first run
-- ✅ `.streamlit/config.toml` sets the professional navy/gold theme automatically
-- ⚠️ **Model training** (`Train Model Now` button) requires compute — expect slower performance on free tier
-- ⚠️ Trained model weights (`.pth` files) are not persisted between Streamlit Cloud restarts (ephemeral filesystem)
+Click the **"New app"** button (top-right corner).
+
+---
+
+#### Step 3 — Configure Your App
+
+Fill in the deployment form:
+
+| Field | Value |
+|-------|-------|
+| **Repository** | `BharathReddyRamasani/Smart-Recruitment-Intelligence-Platform` |
+| **Branch** | `main` |
+| **Main file path** | `app.py` |
+| **App URL (slug)** | e.g. `smart-recruitment-ai` *(choose your own)* |
+
+---
+
+#### Step 4 — Deploy
+
+Click **"Deploy!"**
+
+Streamlit Cloud will:
+1. Clone your repository
+2. Automatically install all packages from `requirements.txt`
+3. Download the spaCy model (`en_core_web_sm`) from the wheel URL in requirements
+4. Launch your app
+
+---
+
+#### Step 5 — Access Your Live App
+
+Your app is now live at:
+
+```
+https://smart-recruitment-ai.streamlit.app
+```
+
+*(Replace `smart-recruitment-ai` with the slug you chose)*
+
+---
+
+### ⚠️ Important Deployment Notes
+
+| Item | Status | Notes |
+|------|--------|-------|
+| `requirements.txt` | ✅ Ready | All deps pinned with exact versions |
+| spaCy model | ✅ Included | Installed via wheel URL in requirements.txt |
+| Synthetic data | ✅ Auto-generated | Created on first run — no manual step needed |
+| Streamlit theme | ✅ Auto-applied | Navy/Gold theme via `.streamlit/config.toml` |
+| Model training | ⚠️ Slow on free tier | Free tier has limited CPU — training may take longer |
+| `.pth` weights | ⚠️ Ephemeral | Model weights reset on each Streamlit Cloud restart |
+
+---
+
+### Updating the Deployed App
+
+Any push to the `main` branch automatically re-deploys the app:
+
+```bash
+git add .
+git commit -m "update"
+git push origin main
+```
 
 ---
 
 ## 📦 Module Details
 
 ### `src/extraction.py` — Information Extraction Engine
-Parses raw resume text to extract:
-- **Skills** (keyword matching against a curated skill dictionary)
-- **Experience years** (regex-based detection)
-- **Education level** (degree keyword matching)
+Parses raw resume text to extract structured fields:
+- **Skills** — keyword matching against a curated domain skill dictionary
+- **Experience years** — regex-based numeric detection
+- **Education level** — degree keyword classification (BSc / MSc / PhD)
 
 ### `src/matching.py` — Similarity & Ranking Engine
-Scores candidates against a job description using:
-- Skill overlap ratio
-- Experience proximity scoring
-- Weighted composite score (60% skill, 30% experience)
+Computes a weighted composite score for each candidate vs. a job description:
+```
+Score = (skill_overlap × 0.60) + (experience_proximity × 0.30)
+```
 
 ### `src/models/attention.py` — MultiHeadAttention
-Custom PyTorch implementation of scaled dot-product multi-head self-attention.
+Pure PyTorch implementation of scaled dot-product multi-head self-attention:
+- Supports configurable head counts (2, 4, 8)
+- Returns both output and raw attention weight tensors
 
 ### `src/models/positional.py` — Positional Encoding
-Sinusoidal positional encoding demonstrating order-sensitivity in Transformer architectures.
+Sinusoidal positional encoding (as in *Attention Is All You Need*):
+- Proves order-sensitivity: forward vs. reversed embeddings diverge measurably
+- Visualised live in the Deep Learning page
 
 ### `src/models/classifier.py` — ResumeClassifier
-End-to-end Transformer classifier:  
-`Embedding → PositionalEncoding → MultiHeadAttention → LayerNorm → Linear → Softmax`
+Full Transformer-based classifier pipeline:
+```
+Embedding → PositionalEncoding → MultiHeadAttention → LayerNorm → Linear → Softmax
+```
+
+### `src/analytics.py` — Resume Analytics
+Chart generation for:
+- Category distribution (bar/pie)
+- Experience distribution (histogram)
+- Skill frequency word cloud
+- Resume length analysis
+
+### `src/explainability.py` — Explainability Module
+- **Attention heatmaps** — per-head token × token weight visualisation using seaborn
+- **Hiring report** — structured markdown report with skill match %, experience match %, and recommendation
 
 ---
 
@@ -187,10 +322,20 @@ End-to-end Transformer classifier:
 
 **Bharath Reddy Ramasani**  
 📧 ramasanibharathreddy2004@gmail.com  
-🔗 [GitHub](https://github.com/BharathReddyRamasani)
+🔗 [GitHub — BharathReddyRamasani](https://github.com/BharathReddyRamasani)
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** — feel free to use, modify, and distribute.
 
 ---
 
 <div align="center">
-<sub>Built with ❤️ using Streamlit & PyTorch</sub>
+
+Built with ❤️ using **Streamlit** · **PyTorch** · **spaCy**
+
+⭐ Star this repo if you found it useful!
+
 </div>
