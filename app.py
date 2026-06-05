@@ -325,7 +325,7 @@ st.sidebar.markdown("""
 """, unsafe_allow_html=True)
 
 st.sidebar.markdown("**Navigation**")
-page = st.sidebar.radio("", [
+page = st.sidebar.radio("Navigation Menu", [
     "Dashboard Overview",
     "Task 1: Resume Analytics",
     "Task 2: Information Extraction",
@@ -399,7 +399,7 @@ if page == "Dashboard Overview":
     st.markdown("<div class='section-title'>Recent Candidate Records</div>", unsafe_allow_html=True)
     st.dataframe(
         df[['candidate_name', 'category', 'experience_years']].head(10),
-        use_container_width=True,
+        width='stretch',
         hide_index=True
     )
 
@@ -478,7 +478,7 @@ elif page == "Task 3 & 6: Ranking Engine":
 
         st.markdown("<div class='section-title'>Top 10 Ranked Candidates</div>", unsafe_allow_html=True)
         ranked_df = pd.DataFrame(ranked)
-        st.dataframe(ranked_df, use_container_width=True, hide_index=True)
+        st.dataframe(ranked_df, width='stretch', hide_index=True)
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # PAGE: Task 4 & 5 – Deep Learning
