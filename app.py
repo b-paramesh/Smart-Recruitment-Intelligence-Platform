@@ -280,15 +280,32 @@ hr {
 """, unsafe_allow_html=True)
 
 # ── Data Loading ──────────────────────────────────────────────────────────────
-DATA_PATH = "data/synthetic_resumes.csv"
+# Use absolute path so the app works both locally and on Streamlit Cloud
+_BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_PATH = os.path.join(_BASE_DIR, "data", "synthetic_resumes.csv")
+
 if not os.path.exists(DATA_PATH):
+    sys.path.insert(0, _BASE_DIR)
     import generate_data
     generate_data.generate_synthetic_resumes()
+
+def _safe_parse_skills(val):
+    """Safely parse extracted_skills from CSV — handles NaN, lists, and strings."""
+    if isinstance(val, list):
+        return val
+    if not isinstance(val, str) or val.strip() == "":
+        return []
+    try:
+        result = ast.literal_eval(val)
+        return result if isinstance(result, list) else []
+    except (ValueError, SyntaxError):
+        # Fallback: treat as a comma-separated plain string
+        return [s.strip().strip("'\"") for s in val.strip("[]").split(",") if s.strip()]
 
 @st.cache_data
 def load_data():
     df = pd.read_csv(DATA_PATH)
-    df['extracted_skills'] = df['extracted_skills'].apply(ast.literal_eval)
+    df['extracted_skills'] = df['extracted_skills'].apply(_safe_parse_skills)
     return df
 
 df = load_data()
