@@ -13,7 +13,7 @@ class ResumeAnalytics:
 
     def plot_category_distribution(self):
         fig, ax = plt.subplots(figsize=(10, 6))
-        sns.countplot(y='category', data=self.df, order=self.df['category'].value_counts().index, ax=ax, palette='viridis')
+        sns.countplot(y='category', data=self.df, order=self.df['category'].value_counts().index, ax=ax, palette='viridis', hue='category', legend=False)
         ax.set_title("Resume Category Distribution")
         ax.set_xlabel("Count")
         ax.set_ylabel("Category")
@@ -47,7 +47,7 @@ class ResumeAnalytics:
     def plot_resume_length_analysis(self):
         self.df['text_length'] = self.df['text'].apply(lambda x: len(str(x).split()))
         fig, ax = plt.subplots(figsize=(10, 6))
-        sns.boxplot(x='category', y='text_length', data=self.df, ax=ax, palette='Set2')
+        sns.boxplot(x='category', y='text_length', data=self.df, ax=ax, palette='Set2', hue='category', legend=False)
         ax.set_title("Resume Length (Word Count) by Category")
         ax.set_ylabel("Word Count")
         ax.set_xlabel("Category")
