@@ -158,6 +158,11 @@ div[data-testid="metric-container"] {
     border-radius: 6px;
     padding: 1.2rem 1.5rem !important;
     box-shadow: 0 2px 8px var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+div[data-testid="metric-container"]:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(27, 58, 107, 0.15);
 }
 
 /* ── Buttons ── */
@@ -165,15 +170,15 @@ div[data-testid="metric-container"] {
     background: var(--navy);
     color: white;
     border: 2px solid var(--navy);
-    border-radius: 4px;
-    padding: 0.55rem 1.8rem;
+    border-radius: 6px;
+    padding: 0.6rem 2rem;
     font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
-    transition: all 0.25s ease;
-    box-shadow: 0 2px 6px var(--shadow);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 10px var(--shadow);
 }
 .stButton > button:hover {
     background: var(--gold);
